@@ -17,7 +17,7 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
-fig, ax = plt.subplots(figsize=(16, 8))
+fig, ax = plt.subplots(figsize=(20, 5))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
     label="Maximum Count",
@@ -38,7 +38,7 @@ ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
 
-figs, ax = plt.subplots(figsize=(20,5))
+figs, ax = plt.subplots(figsize=(10,6))
 sns.barplot(data=grouped_data_2, x='weathersit', y='cnt', hue='workingday', palette=['skyblue', 'orange'])
 ax.set(title='Working Day')
 
