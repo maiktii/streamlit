@@ -6,6 +6,8 @@ st.header('Ini percobaan Streamlit di Google Colab')
 
 days_df = pd.read_csv("Bike-sharing-dataset/day.csv")
 
+st.write(days_df)
+
 filtered_data = days_df[(days_df["yr"] == 1) & (days_df["workingday"] == 0)]
 
 filtered_data_2 = days_df[(days_df["workingday"] == 1) | (days_df["workingday"] == 0)]
