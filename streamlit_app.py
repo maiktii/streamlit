@@ -27,6 +27,11 @@ ax.plot(
     linewidth=2,
     color="#72BCD4"
 )
+ax.title(
+    "Number of Orders Weekend (2012)",
+    loc="center",
+    fontsize=20
+)    
 ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
