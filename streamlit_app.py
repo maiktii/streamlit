@@ -6,6 +6,20 @@ st.header('Ini percobaan Streamlit di Google Colab')
 
 days_df = pd.read_csv("Bike-sharing-dataset/day.csv")
 
+min_date = days_df["dteday"].min()
+max_date = days_df["dteday"].max()
+ 
+with st.sidebar:
+    # Menambahkan logo perusahaan
+    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
+    
+    # Mengambil start_date & end_date dari date_input
+    start_date, end_date = st.date_input(
+        label='Rentang Waktu',min_value=min_date,
+        max_value=max_date,
+        value=[min_date, max_date]
+    )
+
 filtered_data = days_df[(days_df["yr"] == 1) & (days_df["workingday"] == 0)]
 
 filtered_data_2 = days_df[(days_df["workingday"] == 1) | (days_df["workingday"] == 0)]
