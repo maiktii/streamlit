@@ -19,7 +19,7 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
-fig, ax = pls.subplots(figsize=10,5))
+fig, ax = plt.subplots(figsize=(16, 8))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
     grouped_data["dteday"], grouped_data["cnt"]["min"],
