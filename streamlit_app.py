@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-st.header('Ini percobaan Streamlit di Google Colab')
+st.header('Dashboard Bike Sharing Dataset')
 
 days_df = pd.read_csv("Bike-sharing-dataset/day.csv")
 
@@ -17,6 +17,7 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
+st.write('What is the TOTAL max and min number of CNT rentals on weekends in 2012?')
 fig, ax = plt.subplots(figsize=(10,6))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
@@ -33,6 +34,7 @@ ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
 
+st.write('How does the bike-sharing count vary based on different weather conditions, specifically on working days and non-working days?')
 figs, ax = plt.subplots(figsize=(10,6))
 sns.barplot(data=grouped_data_2, x='weathersit', y='cnt', hue='workingday', palette=['skyblue', 'orange'])
 ax.set(title='Working Day')
