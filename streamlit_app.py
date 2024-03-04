@@ -27,6 +27,8 @@ ax.plot(
     color="#72BCD4"
 )
 ax.set(title='Number of Orders Weekend (2012)')
+ax.set(xlabel='Day')
+ax.set(ylabel='Count')
 ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
