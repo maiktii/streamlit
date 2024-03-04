@@ -22,12 +22,19 @@ grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].me
 fig, ax = plt.subplots(figsize=(10, 5))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
-    grouped_data["dteday"], grouped_data["cnt"]["min"],
+    label="Maximum Count",
     marker='o',
     linewidth=2,
+    color="#72BCD4"
+)
+
+ax.plot(
+    grouped_data["dteday"], grouped_data["cnt"]["min"],
+    label="Minimum Count",
+    marker='o',
     linewidth=2,
     color="#72BCD4"
-) 
+)
 ax.tick_params(axis='y', labelsize=20)
 ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
