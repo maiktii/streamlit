@@ -19,12 +19,15 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
-plt.figure(figsize=(10, 5))
-plt.plot(grouped_data["dteday"], grouped_data["cnt"]["max"], marker='o', linewidth=2, color="#72BCD4")
-plt.plot(grouped_data["dteday"], grouped_data["cnt"]["min"], marker='o', linewidth=2, color="#72BCD4")
-plt.title("Number of Orders Weekend (2012)", loc="center", fontsize=20)
-plt.xticks(fontsize=10)
-plt.yticks(fontsize=10)
-plt.xlabel("Day")
-plt.ylabel("Count")
-plt.show()
+fig, ax = pls.subplots(figsize=10,5))
+ax.plot(
+    grouped_data["dteday"], grouped_data["cnt"]["max"],
+    grouped_data["dteday"], grouped_data["cnt"]["min"],
+    marker='o',
+    linewidth=2,
+    color="#72BCD4"
+)
+ax.tick_params(axis='Count', labelsize=20)
+ax.tick_params(axis='Day', labelsize=15)
+st.pyplot(fig)
+    
