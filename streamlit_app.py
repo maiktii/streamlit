@@ -17,7 +17,7 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
-fig, ax = plt.subplots(figsize=(20, 5))
+fig, ax = plt.subplots(figsize=(10,6))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
     label="Maximum Count",
