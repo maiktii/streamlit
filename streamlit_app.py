@@ -17,7 +17,7 @@ grouped_data = filtered_data.groupby(["dteday", "workingday"]).agg({
 
 grouped_data_2 = filtered_data_2.groupby(['workingday', 'weathersit'])['cnt'].mean().reset_index()
 
-st.write('What is the TOTAL max and min number of CNT rentals on weekends in 2012?')
+st.write('What is the TOTAL max and min number of count user rentals on weekends in 2012?')
 fig, ax = plt.subplots(figsize=(10,6))
 ax.plot(
     grouped_data["dteday"], grouped_data["cnt"]["max"],
