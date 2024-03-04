@@ -27,7 +27,7 @@ ax.plot(
     linewidth=2,
     color="#72BCD4"
 )
-ax.tick_params(axis='Count', labelsize=20)
-ax.tick_params(axis='Day', labelsize=15)
+ax.tick_params(axis='y', labelsize=20)
+ax.tick_params(axis='x', labelsize=15)
 st.pyplot(fig)
     
